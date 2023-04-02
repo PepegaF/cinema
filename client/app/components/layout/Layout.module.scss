@@ -16,7 +16,7 @@ $bar-width:20%;
     @apply right-0 border-l border-l-gray-800 overflow-hidden;
   }
   .center {
-    @apply min-h-screen p-layout;
+    @apply min-h-screen p-6;
     margin:0 $bar-width;
   }
 }
