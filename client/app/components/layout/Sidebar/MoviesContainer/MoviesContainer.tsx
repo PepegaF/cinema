@@ -5,10 +5,10 @@ import FavoriteMovies from './FavoriteMovies/FavoriteMovies';
 
 const MoviesContainer: FC = () => {
   return (
-    <div>
+    <>
       <PopularMovies />
       <FavoriteMovies />
-    </div>
+    </>
   )
 }
 

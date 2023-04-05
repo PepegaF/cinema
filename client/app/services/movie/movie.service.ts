@@ -13,7 +13,7 @@ export const MovieService = {
     })
   },
   async getMostPopularMovies() {
-    const { data: movie } = await axiosClassic.get<IMovie[]>(getMoviesUrl(`/most-popular`))
-    return movie
+    const { data } = await axiosClassic.get<IMovie[]>(getMoviesUrl(`/most-popular`))
+    return data
   }
 }
