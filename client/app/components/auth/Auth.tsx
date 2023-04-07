@@ -1,6 +1,5 @@
 import React, { FC, useState } from 'react';
 import { useAuthRedirect } from './useAuthRedirect';
-import { useAuth } from 'hooks/useAuth';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { IAuthInput } from './auth.interface';
 import Meta from './../../utils/meta/Meta';
@@ -8,14 +7,14 @@ import Heading from 'components/heading/Heading';
 import Button from './../ui/form-elements/Button';
 import styles from './auth.module.scss'
 import AuthFields from './AuthFields';
-import { useAppDispatch } from 'hooks/storeHooks';
+import { useAppDispatch, useAppSelector } from 'hooks/storeHooks';
 import { login, register } from 'store/user/userActions';
 
 const Auth: FC = () => {
   const dispath = useAppDispatch()
 
   useAuthRedirect()
-  const { isLoading } = useAuth()
+  const { isLoading } = useAppSelector((state) => state.user)
   const [type, setType] = useState<'login' | 'register'>('login')
 
   const { register: registerInput, handleSubmit, formState, reset } = useForm<IAuthInput>({

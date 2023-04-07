@@ -1,4 +1,4 @@
-export const useAuth = () => ({
-  user: null,
-  isLoading: false
-})
+import { useAppSelector } from './storeHooks'
+
+export const useAuth = () => useAppSelector((state) => state.user)
+
