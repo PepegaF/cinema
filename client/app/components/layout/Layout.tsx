@@ -1,8 +1,10 @@
+import { FC } from 'react'
+
+import Sidebar from './Sidebar/Sidebar'
+import Navigation from './Navigation/Navigation'
+
 import styles from './Layout.module.scss'
-import { FC } from 'react';
-import Navigation from './Navigation/Navigation';
-import Sidebar from './Sidebar/Sidebar';
-import { ILayout } from './layout.interface';
+import { ILayout } from './layout.interface'
 
 const Layout: FC<ILayout> = ({ children }) => {
   return (

@@ -1,6 +1,6 @@
+import { getGenresUrl } from "@/configs/api.config"
+import { axiosClassic } from "api/interceptors"
 import { IGenre } from "shared/types/movie.types"
-import { getGenresUrl } from "config/api.config";
-import { axiosClassic } from './../api/interseptors';
 
 
 export const GenreService = {

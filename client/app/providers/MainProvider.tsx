@@ -1,20 +1,19 @@
-import Layout from 'components/layout/Layout';
-import { FC } from 'react';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import ReduxToast from './ReduxToast';
-import { Provider } from 'react-redux';
-import { store } from './../store/store';
-import HeadProvider from './HeadProvider/HeadProvider';
-import AuthProvider from './AuthProvider/AuthProvider';
-import { TypeComponentAuthFields } from 'shared/types/auth.types';
-
+import AuthProvider from './AuthProvider/AuthProvider'
+import HeadProvider from './HeadProvider/HeadProvider'
+import { FC } from 'react'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { Provider } from 'react-redux'
+import { store } from 'store/store'
+import ReduxToastr from '@/ui/redux-toastr/ReduxToastr'
+import { TypeComponentAuthFields } from '@/shared/types/auth.types'
+import Layout from '@/components/layout/Layout'
 
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      refetchOnWindowFocus: false
-    }
-  }
+      refetchOnWindowFocus: false,
+    },
+  },
 })
 
 const MainProvider: FC<TypeComponentAuthFields> = ({ children, Component }) => {
@@ -22,7 +21,7 @@ const MainProvider: FC<TypeComponentAuthFields> = ({ children, Component }) => {
     <HeadProvider>
       <Provider store={store}>
         <QueryClientProvider client={queryClient}>
-          <ReduxToast />
+          <ReduxToastr />
           <AuthProvider Component={Component}>
             <Layout>{children}</Layout>
           </AuthProvider>

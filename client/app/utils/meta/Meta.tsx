@@ -3,9 +3,9 @@ import { ISeo } from './meta.interface';
 import { FC } from 'react';
 import { useRouter } from 'next/router';
 import logoImage from '../../assets/images/logo.svg';
-import { siteName, titleMerge } from './../../config/seo.config';
 import { onlyText } from './../string/clearText';
 import Head from 'next/head';
+import { siteName, titleMerge } from '@/configs/seo.config';
 
 const Meta: FC<ISeo> = ({ title, description, image, children }) => {
   const { asPath } = useRouter()

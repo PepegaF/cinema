@@ -1,10 +1,8 @@
 import { FC } from 'react'
-import { IHome } from './home.interface'
-import Layout from './../../layout/Layout';
 import Meta from './../../../utils/meta/Meta';
-import Heading from './../../heading/Heading';
+import Heading from '@/components/ui/heading/Heading';
 
-const Home: FC<IHome> = () => {
+const Home: FC = () => {
   return (
     <Meta
       title="Watch movies online"

@@ -3,12 +3,12 @@ import { FC } from 'react';
 import { IMovie } from 'shared/types/movie.types';
 import styles from './MoviesList.module.scss'
 import Link from 'next/link';
-import { getMovieUrl } from 'config/url.config';
 import Image from 'next/image';
 import { getGenresListEach } from 'utils/movie/getGenresList';
-import { getGenresUrl } from 'config/api.config';
-import MaterialIcon from 'components/ui/MaterialIcon';
 import { MdStarRate } from 'react-icons/md';
+import { getMovieUrl } from '@/configs/url.config';
+import { getGenresUrl } from '@/configs/api.config';
+import { MaterialIcon } from '@/components/ui/icons/MaterialIcon';
 
 const MovieItem: FC<{ movie: IMovie }> = ({ movie }) => {
   return (

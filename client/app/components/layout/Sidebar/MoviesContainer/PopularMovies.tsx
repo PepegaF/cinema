@@ -1,8 +1,9 @@
-import SkeletonLoader from 'components/ui/SkeletonLoader';
 import { FC } from 'react';
 import { useQuery } from 'react-query';
 import { MovieService } from 'services/movie/movie.service';
 import MoviesList from './MoviesList';
+import SkeletonLoader from '@/components/ui/skeleton-loader/SkeletonLoader';
+
 const PopularMovies: FC = () => {
   const { isLoading, data } = useQuery('Popular movies in slider', () => MovieService.getMostPopularMovies())
   return (

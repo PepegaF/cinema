@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import Menu from '../Menu';
 import { usePopularGenres } from './usePopularGenres';
-import SkeletonLoader from './../../../../ui/SkeletonLoader';
+import SkeletonLoader from '@/components/ui/skeleton-loader/SkeletonLoader';
 
 const GenreMenu: FC = () => {
   const { isLoading, data } = usePopularGenres()

@@ -1,39 +1,38 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IInitialState } from "./user.interface";
-import { getStoreLocal } from "utils/localStorage";
-import { checkAuth, login, logout, register } from "./userActions";
+import { createSlice } from '@reduxjs/toolkit'
 
+import { getStoreLocal } from '@/utils/local-storage/localStorage'
 
-const initialState: IInitialState = {
+import { checkAuth, login, logout, register } from './user.actions'
+import { IUserInitialState } from './user.interface'
+
+const initialState: IUserInitialState = {
   user: getStoreLocal('user'),
-  isLoading: false
+  isLoading: false,
 }
 
 export const userSlice = createSlice({
   name: 'user',
   initialState,
-  reducers: {
-
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(register.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(register.fulfilled, (state, action) => {
+      .addCase(register.fulfilled, (state, { payload }) => {
         state.isLoading = false
-        state.user = action.payload.user
+        state.user = payload.user
       })
-      .addCase(register.rejected, (state, action) => {
+      .addCase(register.rejected, (state) => {
         state.isLoading = false
         state.user = null
       })
       .addCase(login.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(login.fulfilled, (state, action) => {
+      .addCase(login.fulfilled, (state, { payload }) => {
         state.isLoading = false
-        state.user = action.payload.user
+        state.user = payload.user
       })
       .addCase(login.rejected, (state) => {
         state.isLoading = false
@@ -43,11 +42,11 @@ export const userSlice = createSlice({
         state.isLoading = false
         state.user = null
       })
-      .addCase(checkAuth.fulfilled, (state, action) => {
-        state.user = action.payload.user
+      .addCase(checkAuth.fulfilled, (state, { payload }) => {
+        state.user = payload.user
       })
-  }
+  },
 })
 
 export default userSlice.reducer
-export const { } = userSlice.actions
+// export const { } = userSlice.actions

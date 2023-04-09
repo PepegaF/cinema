@@ -3,8 +3,8 @@ import React from 'react'
 import { FC } from 'react';
 import { IMovie } from 'shared/types/movie.types';
 import styles from './SearchList.module.scss'
-import { getMoviesUrl } from './../../../../../config/api.config';
 import Image from 'next/image';
+import { getMoviesUrl } from '@/configs/api.config';
 
 const SearchList: FC<{ movies: IMovie[] }> = ({ movies }) => {
   return (

@@ -1,8 +1,12 @@
-import axios from '../../api/interseptors';
-import { getUsersUrl } from 'config/api.config';
+import axios from 'api/interceptors'
+
+import { getUsersUrl } from '@/configs/api.config'
 
 export const AdminService = {
   async getCountUsers() {
+    return axios.get<number>(getUsersUrl('/count'))
+  },
+  async getCountsUsers() {
     return axios.get<number>(getUsersUrl('/count'))
   },
 }

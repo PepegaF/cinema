@@ -1,5 +1,5 @@
-import Heading from 'components/heading/Heading'
-import Meta from 'utils/meta/Meta'
+import Heading from '@/components/ui/heading/Heading'
+import Meta from '@/utils/meta/Meta'
 
 export default function Error404() {
   return (

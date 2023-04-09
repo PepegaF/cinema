@@ -1,3 +1,5 @@
+import React from 'react';
+
 export interface ILayout {
-   children: any
+  children: React.ReactNode
 }
