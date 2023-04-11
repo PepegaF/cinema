@@ -20,7 +20,7 @@ const MainProvider: FC<TypeComponentAuthFields> = ({ children, Component }) => {
   return (
     <HeadProvider>
       <Provider store={store}>
-        <QueryClientProvider client={queryClient}>
+        <QueryClientProvider client={queryClient} contextSharing={true}>
           <ReduxToastr />
           <AuthProvider Component={Component}>
             <Layout>{children}</Layout>
