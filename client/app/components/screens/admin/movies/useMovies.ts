@@ -21,15 +21,10 @@ export const useMovies = () => {
   const queryData = useQuery(['movie list', debouncedSearch], () => MovieService.getMovies(debouncedSearch),
     {
       select: ({ data }) =>
-        data.map(
-          (movie): ITableItem => ({
+        data.map((movie): ITableItem => ({
             _id: movie._id,
             editUrl: getAdminUrl(`movie/edit/${movie._id}`),
-            items: [
-              movie.title,
-              getGenresList(movie.genres),
-              String(movie.rating),
-            ],
+            items: [movie.title,getGenresList(movie.genres),String(movie.rating),],
           })
         ),
       onError(error) {
