@@ -1,0 +1,10 @@
+import React from 'react'
+import { FC } from 'react';
+
+const Gallery: FC = () => {
+  return (
+    <div>Gallery</div>
+  )
+}
+
+export default Gallery

@@ -9,14 +9,7 @@ import { IOption, ISelect } from './select.interface'
 
 const animatedComponents = makeAnimated()
 
-const Select: FC<ISelect> = ({
-  placeholder,
-  error,
-  isMulti,
-  options,
-  field,
-  isLoading,
-}) => {
+const Select: FC<ISelect> = ({ placeholder, error, isMulti, options, field, isLoading, }) => {
   const onChange = (newValue: OnChangeValue<IOption, boolean>) => {
     field.onChange(
       isMulti
