@@ -11,7 +11,6 @@ interface ISlideArrow {
 
 const SlideArrow: FC<ISlideArrow> = ({ variant, clickHandler }) => {
   const isLeft = variant === 'left'
-  console.log(styles);
   return (
     <button onClick={clickHandler} className={cn(styles.arrow, {
       [styles.left]: isLeft,

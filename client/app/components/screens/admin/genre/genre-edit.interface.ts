@@ -1,3 +1,3 @@
-import { IGenre } from '@/shared/types/movie.types'
+import { IUser } from '@/shared/types/user.types';
 
-export interface IGenreEditInput extends Omit<IGenre, '_id'> {}
+export interface IUserEditInput extends Omit<IUser, '_id' | 'createdAt'> { }

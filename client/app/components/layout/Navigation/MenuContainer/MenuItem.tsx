@@ -10,7 +10,6 @@ import { IMenuItem } from './menu.types'
 
 const MenuItem: FC<{ item: IMenuItem }> = ({ item }) => {
   const { asPath } = useRouter()
-
   return (
     <li
       className={cn({

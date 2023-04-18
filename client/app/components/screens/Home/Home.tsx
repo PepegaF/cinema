@@ -4,6 +4,7 @@ import Heading from '@/components/ui/heading/Heading';
 import { IHome } from './home.interface';
 import Slider from '@/components/ui/slider/Slider';
 import SubHeading from '@/components/ui/heading/SubHeading';
+import Gallery from '@/components/ui/gallery/Gallery';
 
 const Home: FC<IHome> = ({ slides, actors, trendingMovies }) => {
   return (
@@ -16,11 +17,18 @@ const Home: FC<IHome> = ({ slides, actors, trendingMovies }) => {
         className="text-gray-300 mb-8 text-xl"
       />
 
-      {slides.length && <Slider slides={slides} />}
+      {actors.length && <Slider slides={slides} />}
+
+      <div className='my-10'>
+        <SubHeading title='Trending now' />
+        {trendingMovies.length && <Gallery items={trendingMovies} />}
+      </div>
 
       <div className='my-10'>
         <SubHeading title='Best actors' />
+        {actors.length && <Gallery items={actors} />}
       </div>
+
     </Meta>
   )
 }

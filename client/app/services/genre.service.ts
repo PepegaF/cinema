@@ -25,4 +25,14 @@ export const GenreService = {
   async update(_id: string, data: IGenreEditInput) {
     return axios.put<string>(getGenresUrl(`/${_id}`), data)
   },
+  async getBySlug(slug: string) {
+    return axiosClassic.get<IGenre>(getGenresUrl(`/by-slug/${slug}`))
+  },
+  async getPopularGenres(limit: number = 4) {
+    return axiosClassic.get<IGenre[]>(getGenresUrl(`/popular`), {
+      params: {
+        limit,
+      },
+    })
+  },
 }

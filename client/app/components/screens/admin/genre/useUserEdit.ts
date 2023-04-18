@@ -1,4 +1,4 @@
-import { IGenreEditInput } from './genre-edit.interface'
+import { IUserEditInput } from './genre-edit.interface'
 import { useRouter } from 'next/router'
 import { SubmitHandler, UseFormSetValue } from 'react-hook-form'
 import { useMutation, useQuery } from 'react-query'
@@ -11,38 +11,37 @@ import { getKeys } from '@/utils/object/getKeys'
 
 import { getAdminUrl } from '@/configs/url.config'
 
-export const useGenreEdit = (setValue: UseFormSetValue<IGenreEditInput>) => {
+export const useGenreEdit = (setValue: UseFormSetValue<IUserEditInput>) => {
   const { query, push } = useRouter()
 
-  const genreId = String(query.id)
+  const userId = String(query.id)
 
-  const { isLoading } = useQuery(['genre', genreId], () => GenreService.getById(genreId),
+  const { isLoading } = useQuery(['user', userId], () => GenreService.getById(userId),
     {
       onSuccess({ data }) {
-        getKeys(data).forEach((key) => {
-          setValue(key, data[key])
-        })
+        setValue('email', data.email)
+        setValue('isAdmin', data.isAdmin)
       },
       onError(error) {
-        toastError(error, 'Get genre')
+        toastError(error, 'Get user')
       },
       enabled: !!query.id,
     }
   )
 
-  const { mutateAsync } = useMutation('update genre', (data: IGenreEditInput) => GenreService.update(genreId, data),
+  const { mutateAsync } = useMutation('update user', (data: IUserEditInput) => GenreService.update(userId, data),
     {
       onError(error) {
-        toastError(error, 'Update genre')
+        toastError(error, 'Update user')
       },
       onSuccess() {
-        toastr.success('Update genre', 'update was successful')
-        push(getAdminUrl('genres'))
+        toastr.success('Update user', 'update was successful')
+        push(getAdminUrl('users'))
       },
     }
   )
 
-  const onSubmit: SubmitHandler<IGenreEditInput> = async (data) => {
+  const onSubmit: SubmitHandler<IUserEditInput> = async (data) => {
     await mutateAsync(data)
   }
 

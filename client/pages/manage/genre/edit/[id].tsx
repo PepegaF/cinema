@@ -1,4 +1,4 @@
-import GenreEdit from '@/screens/admin/genre/GenreEdit'
+import GenreEdit from '@/components/screens/admin/genre/UserEdit'
 
 import { NextPageAuth } from '@/shared/types/auth.types'
 
