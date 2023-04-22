@@ -5,7 +5,7 @@ import styles from './MoviesList.module.scss'
 import MovieItem from './MovieItem';
 import Link from 'next/link';
 
-const MoviesList: FC<IMovieList> = ({ title, link, movies }) => {
+const MovieList: FC<IMovieList> = ({ title, link, movies }) => {
   return (
     <div className={styles.list}>
       <div className={styles.heading}>{title}</div>
@@ -15,4 +15,4 @@ const MoviesList: FC<IMovieList> = ({ title, link, movies }) => {
   )
 }
 
-export default MoviesList
+export default MovieList

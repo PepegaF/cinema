@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useQuery } from 'react-query';
 import { MovieService } from 'services/movie/movie.service';
-import MoviesList from './MoviesList';
+import MoviesList from './MovieList';
 import SkeletonLoader from '@/components/ui/skeleton-loader/SkeletonLoader';
 
 const PopularMovies: FC = () => {
