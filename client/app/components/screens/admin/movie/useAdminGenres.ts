@@ -1,11 +1,10 @@
 import { useQuery } from 'react-query'
 
-
+import { IOption } from '@/ui/select/select.interface'
 
 import { GenreService } from '@/services/genre.service'
 
 import { toastError } from '@/utils/api/withToastrErrorRedux'
-import { IOption } from '@/components/ui/select/select.interface'
 
 export const useAdminGenres = () => {
   const queryData = useQuery('list of genre', () => GenreService.getAll(), {

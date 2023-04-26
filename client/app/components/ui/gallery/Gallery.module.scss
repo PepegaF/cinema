@@ -1,8 +1,7 @@
 @import '../../../assets/styles/variables';
 
 .gallery {
-	@apply flex items-center overflow-x-auto flex-nowrap py-3;
-	-webkit-overflow-scrolling: touch;
+	@apply flex items-center overflow-x-hidden flex-nowrap py-3;
 
 	&::-webkit-scrollbar {
 		display: none;
@@ -23,8 +22,7 @@
 	}
 
 	&.horizontal {
-		@apply mb-8 h-44;
-		width: 31%;
+		@apply  h-44;
 	}
 
 	&.withText {

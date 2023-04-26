@@ -1,3 +1,8 @@
 .sidebar{
   @apply p-7;
+  -ms-overflow-style: none;  /* IE и Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.sidebar::-webkit-scrollbar{
+  display: none; /* Chrome, Safari и Opera  */
 }

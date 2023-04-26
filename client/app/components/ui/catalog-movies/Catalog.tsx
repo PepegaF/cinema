@@ -1,11 +1,11 @@
 import React, { FC } from 'react'
-import styles from './Catalog.module.scss'
 import { ICatalog } from './catalog.interface'
 import Meta from '@/utils/meta/Meta'
 import Heading from '../heading/Heading'
 import Description from '../heading/Description'
 import GalleryItem from '../gallery/GalleryItem'
 import { getMovieUrl } from '@/configs/url.config'
+import styles from './Catalog.module.scss'
 
 const Catalog: FC<ICatalog> = ({ movies, title, description }) => {
   return (

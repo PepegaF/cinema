@@ -1,5 +1,12 @@
 
-export const API_URL = 'http://localhost:3000/api'
+// export const API_URL = 'http://localhost:3000/api'
+export const API_URL = `http://localhost:3000/api`
+export const API_SERVER_URL = `http://localhost:4200/api`
+const APP_ENV = 'development'
+// const REACT_APP_ENV=production
+export const IS_PRODUCTION = APP_ENV === 'development'
+
+
 
 export const getAuthUrl = (string: string) => `/auth${string}`
 export const getUsersUrl = (string: string) => `/users${string}`

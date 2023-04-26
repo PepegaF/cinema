@@ -1,8 +1,8 @@
 .list {
-	@apply mt-11 animate-fade;
+	@apply mt-8 animate-fade;
 
 	.heading {
-		@apply font-bold text-xl mb-5 text-white capitalize;
+		@apply font-bold text-xl mb-3 text-white capitalize;
 	}
 
 	.button {
@@ -10,7 +10,7 @@
 	}
 
 	.item {
-		@apply mb-4 flex items-stretch;
+		@apply mb-3 flex items-center;
 
 		> a {
 			img {

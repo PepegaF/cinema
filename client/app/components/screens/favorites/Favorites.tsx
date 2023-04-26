@@ -7,9 +7,12 @@ import { useFavorites } from './useFavorites';
 import SkeletonLoader from '@/components/ui/skeleton-loader/SkeletonLoader';
 import FavoriteItem from './FavoriteItem';
 import { getMovieUrl } from '@/configs/url.config';
+import { useAuth } from '@/hooks/useAuth';
 
 const Favorites: FC = () => {
   const { favoritesMovies, isLoading } = useFavorites()
+  const { user } = useAuth()
+  if (!user) return null
 
   return (
     <Meta title="Favorites">

@@ -4,7 +4,8 @@ import { FieldError } from 'react-hook-form'
 
 export interface IFieldProps {
   placeholder: string
-  error?: FieldError | undefined
+  error?: any
+  // fuck this shit
 }
 
 type TypeInputPropsField = InputHTMLAttributes<HTMLInputElement> & IFieldProps

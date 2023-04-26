@@ -4,7 +4,9 @@ import PopularMovies from './PopularMovies';
 import FavoriteMovies from './FavoriteMovies/FavoriteMovies';
 import dynamic from 'next/dynamic';
 
-const DynamicFavoriteMovies = dynamic(() => import('./FavoriteMovies/FavoriteMovies'))
+const DynamicFavoriteMovies = dynamic(() => import('./FavoriteMovies/FavoriteMovies'), {
+  ssr: false
+})
 
 
 const MoviesContainer: FC = () => {

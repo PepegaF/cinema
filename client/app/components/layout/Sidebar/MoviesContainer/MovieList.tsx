@@ -10,7 +10,7 @@ const MovieList: FC<IMovieList> = ({ title, link, movies }) => {
     <div className={styles.list}>
       <div className={styles.heading}>{title}</div>
       {movies.map(movie => <MovieItem key={movie._id} movie={movie} />)}
-      <Link className={styles.button} href={link}>See more</Link>
+      <Link className={styles.button} href={link}>{link === '/trending' ? 'All popular movies' : 'All favorites movies'}</Link>
     </div>
   )
 }

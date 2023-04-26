@@ -5,7 +5,9 @@ import MoviesList from './MovieList';
 import SkeletonLoader from '@/components/ui/skeleton-loader/SkeletonLoader';
 
 const PopularMovies: FC = () => {
-  const { isLoading, data } = useQuery('Popular movies in slider', () => MovieService.getMostPopularMovies())
+  const { isLoading, data } = useQuery('Popular movies in slider', () => MovieService.getMostPopularMovies(), {
+    select: (data) => data.slice(0, 3)
+  })
   return (
     <>
       {isLoading ? <div className='mt-11'>

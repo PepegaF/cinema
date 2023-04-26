@@ -1,10 +1,10 @@
 import { useQuery } from 'react-query'
 
+import { IOption } from '@/ui/select/select.interface'
 
 import { ActorService } from '@/services/actor.service'
 
 import { toastError } from '@/utils/api/withToastrErrorRedux'
-import { IOption } from '@/components/ui/select/select.interface'
 
 export const useAdminActors = () => {
   const queryData = useQuery('list of actor', () => ActorService.getAll(), {

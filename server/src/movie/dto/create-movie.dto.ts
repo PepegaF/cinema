@@ -1,49 +1,49 @@
 import {
-	IsArray,
-	IsBoolean,
-	IsNumber,
-	IsObject,
-	IsString,
+  IsArray,
+  IsBoolean,
+  IsNumber,
+  IsObject,
+  IsString,
 } from 'class-validator'
 
 export class Parameter {
-	@IsNumber()
-	year: number
+  @IsNumber()
+  year: number
 
-	@IsNumber()
-	duration: number
+  @IsNumber()
+  duration: number
 
-	@IsString()
-	country: string
+  @IsString()
+  country: string
 }
 
 export class CreateMovieDto {
-	@IsString()
-	poster: string
+  @IsString()
+  poster: string
 
-	@IsString()
-	bigPoster: string
+  @IsString()
+  bigPoster: string
 
-	@IsString()
-	title: string
+  @IsString()
+  title: string
 
-	@IsString()
-	description: string
+  // @IsString()
+  // description: string
 
-	@IsObject()
-	parameters?: Parameter
+  @IsObject()
+  parameters?: Parameter
 
-	@IsArray()
-	@IsString({ each: true })
-	genres: string[]
+  @IsArray()
+  @IsString({ each: true })
+  genres: string[]
 
-	@IsArray()
-	@IsString({ each: true })
-	actors: string[]
+  @IsArray()
+  @IsString({ each: true })
+  actors: string[]
 
-	@IsString()
-	videoUrl: string
+  @IsString()
+  videoUrl: string
 
-	@IsString()
-	slug: string
+  @IsString()
+  slug: string
 }
