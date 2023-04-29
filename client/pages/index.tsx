@@ -24,7 +24,7 @@ export const getStaticProps: GetStaticProps = async () => {
     const { data: dataActors } = await ActorService.getAll()
     const dataTrendingMovies = await MovieService.getMostPopularMovies()
 
-    const slides: ISlide[] = movies.slice(0, 3).map((m) => ({
+    const slides: ISlide[] = movies.map((m) => ({
       _id: m._id,
       link: getMovieUrl(m.slug),
       subTitle: getGenresList(m.genres),
@@ -32,7 +32,7 @@ export const getStaticProps: GetStaticProps = async () => {
       bigPoster: m.bigPoster,
     }))
 
-    const actors: IGalleryItem[] = dataActors.slice(0, 7).map(a => ({
+    const actors: IGalleryItem[] = dataActors.slice(6, 13).map(a => ({
       name: a.name,
       posterPath: a.photo,
       link: getActorUrl(a.slug),

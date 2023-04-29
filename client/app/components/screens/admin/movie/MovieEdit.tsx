@@ -37,154 +37,61 @@ const MovieEdit: FC = () => {
     <Meta title="Edit movie">
       <AdminNavigation />
       <Heading title="Edit movie" />
-      {isLoading ? (
-        <SkeletonLoader count={5} />
-      ) : (
-        <form onSubmit={handleSubmit(onSubmit)} className={formStyles.form}>
+      {isLoading ? <SkeletonLoader count={5} />
+        : (<form onSubmit={handleSubmit(onSubmit)} className={formStyles.form}>
           <div className={formStyles.fields}>
-            <Field
-              {...register('title', {
-                required: 'Title is required!',
-              })}
-              placeholder="Title"
-              error={errors.title}
+            <Field {...register('title', { required: 'Title is required!' })}
+              placeholder="Title" error={errors.title}
             />
-            <SlugField
-              generate={() =>
-                setValue('slug', generateSlug(getValues('title')))
-              }
-              register={register}
-              error={errors.slug}
+            <SlugField generate={() => setValue('slug', generateSlug(getValues('title')))}
+              register={register} error={errors.slug}
             />
-            <Field
-              {...register('parameters.country', {
-                required: 'Country is required!',
-              })}
-              placeholder="Country"
-              error={errors.parameters?.country}
-              style={{ width: '31%' }}
+            <Field {...register('parameters.country', { required: 'Country is required!' })}
+              placeholder="Country" error={errors.parameters?.country} style={{ width: '31%' }}
             />
-            <Field
-              {...register('parameters.duration', {
-                required: 'Duration is required!',
-              })}
-              placeholder="Duration (min.)"
-              error={errors.parameters?.duration}
-              style={{ width: '31%' }}
+            <Field {...register('parameters.duration', { required: 'Duration is required!', })}
+              placeholder="Duration (min.)" error={errors.parameters?.duration} style={{ width: '31%' }}
             />
-            <Field
-              {...register('parameters.year', {
-                required: 'Year is required!',
-              })}
-              placeholder="Year"
-              error={errors.parameters?.year}
-              style={{ width: '31%' }}
+            <Field {...register('parameters.year', { required: 'Year is required!' })}
+              placeholder="Year" error={errors.parameters?.year} style={{ width: '31%' }}
             />
 
-            <Controller
-              name="genres"
-              control={control}
-              rules={{
-                required: 'Please select at least one genre!',
-              }}
+            <Controller name="genres" control={control}
+              rules={{ required: 'Please select at least one genre!' }}
               render={({ field, fieldState: { error } }) => (
-                <DynamicSelect
-                  error={error}
-                  field={field}
-                  placeholder="Genres"
-                  options={genres || []}
-                  isLoading={isGenresLoading}
-                  isMulti
-                />
+                <DynamicSelect error={error} field={field} placeholder="Genres" options={genres || []} isLoading={isGenresLoading} isMulti />
               )}
             />
-            <Controller
-              name="actors"
-              control={control}
-              rules={{
-                required: 'Please select at least one actor!',
-              }}
+            <Controller name="actors" control={control}
+              rules={{ required: 'Please select at least one actor!' }}
               render={({ field, fieldState: { error } }) => (
-                <DynamicSelect
-                  error={error}
-                  field={field}
-                  placeholder="Actors"
-                  options={actors || []}
-                  isLoading={isActorsLoading}
-                  isMulti
-                />
+                <DynamicSelect error={error} field={field} placeholder="Actors" options={actors || []} isLoading={isActorsLoading} isMulti />
               )}
             />
-
-            <Controller
-              name="poster"
-              control={control}
-              defaultValue=""
-              render={({
-                field: { value, onChange },
-                fieldState: { error },
-              }) => (
-                <UploadField
-                  placeholder="Poster"
-                  error={error}
-                  folder="movies"
-                  image={value}
-                  onChange={onChange}
-                />
+            <Controller name="poster" control={control} defaultValue=""
+              render={({ field: { value, onChange }, fieldState: { error }, }) => (
+                <UploadField placeholder="Poster" error={error} folder="movies" image={value} onChange={onChange} />
               )}
-              rules={{
-                required: 'Poster is required!',
-              }}
+              rules={{ required: 'Poster is required!' }}
             />
 
-            <Controller
-              name="bigPoster"
-              control={control}
-              defaultValue=""
-              render={({
-                field: { value, onChange },
-                fieldState: { error },
-              }) => (
-                <UploadField
-                  placeholder="Big poster"
-                  error={error}
-                  folder="movies"
-                  image={value}
-                  onChange={onChange}
-                />
+            <Controller name="bigPoster" control={control} defaultValue=""
+              render={({ field: { value, onChange }, fieldState: { error } }) => (
+                <UploadField placeholder="Big poster" error={error} folder="movies" image={value} onChange={onChange} />
               )}
-              rules={{
-                required: 'Big poster is required!',
-              }}
+              rules={{ required: 'Big poster is required!' }}
             />
 
-            <Controller
-              name="videoUrl"
-              control={control}
-              defaultValue=""
-              render={({
-                field: { value, onChange },
-                fieldState: { error },
-              }) => (
-                <UploadField
-                  placeholder="Video"
-                  error={error}
-                  folder="movies"
-                  image={value}
-                  onChange={onChange}
-                  style={{ marginTop: -25 }}
-                  isNoImage
-                />
+            <Controller name="videoUrl" control={control} defaultValue=""
+              render={({ field: { value, onChange }, fieldState: { error } }) => (
+                <UploadField placeholder="Video" error={error} folder="movies" image={value} onChange={onChange} style={{ marginTop: -25 }} isNoImage />
               )}
-              rules={{
-                required: 'Video is required!',
-              }}
+              rules={{ required: 'Video is required!' }}
             />
           </div>
-
           <Button>Update</Button>
         </form>
-      )}
+        )}
     </Meta>
   )
 }

@@ -4,8 +4,11 @@ import styles from './Sidebar.module.scss'
 import { FC } from 'react';
 
 const Sidebar: FC = () => {
+  const a = () => {
+    console.log(1)
+  }
   return (
-    <div className={styles.sidebar}>
+    <div onScroll={() => a} className={styles.sidebar}>
       <Search />
       <MoviesContainer />
     </div>

@@ -1,11 +1,17 @@
 @import '../../../assets/styles/variables';
 
 .gallery {
-	@apply flex items-center overflow-x-hidden flex-nowrap py-3;
-
-	&::-webkit-scrollbar {
-		display: none;
-	}
+	@apply flex items-center overflow-x-auto flex-nowrap py-3;
+  
+  &::-webkit-scrollbar {
+    background-color: rgba(216, 216, 219, 0.15);
+    border-radius: 5px;
+    height: 9px;
+}
+&::-webkit-scrollbar-thumb {
+  background: #090909;
+  border-radius: 5px;
+}
 }
 
 .item {
