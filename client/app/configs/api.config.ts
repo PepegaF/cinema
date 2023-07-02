@@ -1,7 +1,7 @@
 
 // export const API_URL = 'http://localhost:3000/api'
-export const API_URL = `http://5.181.108.29:3000/api`
-export const API_SERVER_URL = `http://5.181.108.29:4200/api`
+export const API_URL = `http://localhost:3000/api`
+export const API_SERVER_URL = `http://localhost:4200/api`
 const APP_ENV = 'production'
 // const REACT_APP_ENV=production
 export const IS_PRODUCTION = APP_ENV === 'production'
