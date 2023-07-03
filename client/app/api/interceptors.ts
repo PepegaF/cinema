@@ -12,6 +12,8 @@ export const axiosClassic = axios.create({
   baseURL: IS_PRODUCTION ? API_SERVER_URL : API_URL,
   headers: {
     'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Credentials': 'true'
   },
 })
 
@@ -20,6 +22,8 @@ const instance = axios.create({
   baseURL: API_URL,
   headers: {
     'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Credentials': 'true'
   },
 })
 
